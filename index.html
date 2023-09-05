@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FIFA总评计算</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/custom.js"></script>
+    <link rel="stylesheet" href="css/mycss.css">
+    <link rel="stylesheet" href="css/grid.css">
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-70" style="text-align: center;">
+                    <div onclick="clear_all_positions()" style="color: black; position: absolute; right: 30px; top: 0px; font-size: 20pt; z-index: 9999;"><i class="fa fa-window-close-o"></i></div>
+
+                    <div style="width: 95%; position: absolute; height: 100%;" id="squad"></div>
+                </div>
+
+                <div class="col-50">
+                    <div style="width: 100%; height: 500px; visibility: hidden;" id="player">
+                        <input type="text" class="form-control" style="width: 100%;" id="player_search_input" oninput="search_player(event)">
+                            <table style="width: 100%; margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50%;">姓名</th>
+                                        <th style="width: 15%;">卡种</th>
+                                        <th style="width: 15%;">俱乐部</th>
+                                        <th style="width: 10%;">总评</th>
+                                        <th style="width: 10%;">位置</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="player_search_results"></tbody>
+                            </table>
+                        <div style="text-align: center; margin-top: 15px;" id="pages">
+                        </div>
+                    </div>
+
+                    <select onchange="changeFormation(event)">
+                        <option value="3142">3-1-4-2</option>
+                        <option value="3412">3-4-1-2</option>
+                        <option value="3421">3-4-2-1</option>
+                        <option value="343">3-4-3</option>
+                        <option value="352">3-5-2</option>
+                        <option value="41212">4-1-2-1-2</option>
+                        <option value="41212(2)">4-1-2-1-2 (2)</option>
+                        <option value="4132">4-1-3-2</option>
+                        <option value="4141">4-1-4-1</option>
+                        <option value="4222">4-2-2-2</option>
+                        <option value="4231">4-2-3-1</option>
+                        <option value="4231(2)">4-2-3-1 (2)</option>
+                        <option value="424">4-2-4</option>
+                        <option value="4312">4-3-1-2</option>
+                        <option value="4321">4-3-2-1</option>
+                        <option value="433">4-3-3</option>
+                        <option value="433(2)">4-3-3 (2)</option>
+                        <option value="433(3)">4-3-3 (3)</option>
+                        <option value="433(4)">4-3-3 (4)</option>
+                        <option value="433(5)">4-3-3 (5)</option>
+                        <option value="4411">4-4-1-1</option>
+                        <option value="4411(2)">4-4-1-1 (2)</option>
+                        <option value="442" selected>4-4-2</option>
+                        <option value="442(2)">4-4-2 (2)</option>
+                        <option value="451">4-5-1</option>
+                        <option value="451(2)">4-5-1 (2)</option>
+                        <option value="5212">5-2-1-2</option>
+                        <option value="5221">5-2-2-1</option>
+                        <option value="5122">5-1-2-2</option>
+                        <option value="541">5-4-1</option>
+                    </select>
+
+                    <br><br>
+
+                    1. 计算11名球员能力值总和：
+                    <p id="naive-sum"></p>
+                    2. 计算11名球员能力平均值：
+                    <p id="naive-mean"></p>
+                    3. 高于平均值球员修正值：
+                    <p id="correction"></p>
+                    3. 最终结果：
+                    <p id="final"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="myjs/squad.js"></script>
+    <script type="text/javascript" src="myjs/player.js"></script>
+    <script type="text/javascript" src="myjs/display_calculation.js"></script>
+<!--     <script type="text/javascript" src="myjs/fetch_data.js"></script>
+    <script type="text/javascript">
+        find_all_players();
+    </script> -->
+</body>
+</html>
